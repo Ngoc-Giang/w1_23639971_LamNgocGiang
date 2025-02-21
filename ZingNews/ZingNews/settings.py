@@ -88,5 +88,17 @@ ROBOTSTXT_OBEY = True
 #HTTPCACHE_STORAGE = "scrapy.extensions.httpcache.FilesystemCacheStorage"
 
 # Set settings whose default value is deprecated to a future-proof value
-TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
-FEED_EXPORT_ENCODING = "utf-8"
+# TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
+# FEED_EXPORT_ENCODING = "utf-8"
+
+# # cập nhật thêm
+# MYSQL_HOST = 'localhost'
+# MYSQL_DATABASE = 'zingnewgiang'
+# MYSQL_USER = 'root'
+# MYSQL_PASSWORD = '1234'
+# MYSQL_PORT = 3307 
+
+ITEM_PIPELINES = {
+    'ZingNews.pipelines.MySQLPipeline': 1,
+    # 1 là độ ưu tiên (số nhỏ hơn chạy trước)
+}

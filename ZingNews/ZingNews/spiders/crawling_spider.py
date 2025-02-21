@@ -1,5 +1,6 @@
 import scrapy
 import time
+from ZingNews.items import ZingnewsItem
 
 class CrawlingSpider(scrapy.Spider):
     name = "zingnews"
@@ -9,6 +10,12 @@ class CrawlingSpider(scrapy.Spider):
     def parse(self, response):
         news = response.css(".article-item")
         for zingnew in news:
+            # item = ZingnewsItem()
+            # item["Title"] = zingnew.css(".article-title a::text").get()
+            # item["Date"] = zingnew.css("span.date::text").get()
+            # item["Time"] = zingnew.css("span.time::text").get()
+            # item["Content"] = zingnew.css("p.article-summary::text").get()
+            # item["Link"]= zingnew.css(".article-title a::attr(href)").get()
             items = {
                 "Title": zingnew.css(".article-title a::text").get(),
                 "Date": zingnew.css("span.date::text").get(),
